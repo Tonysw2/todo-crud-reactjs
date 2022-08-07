@@ -1,0 +1,29 @@
+{
+  "todo": [
+    {
+      "id": "90a119ff-02e6-4b76-81c5-d9543ba551b5",
+      "name": "Jo Purdy",
+      "complete": true
+    },
+    {
+      "id": "b599852f-2a03-4aa5-b85d-d64b5f3c6f1d",
+      "name": "Alice Doyle",
+      "complete": true
+    },
+    {
+      "id": "0fc453c6-666f-4054-8e1c-f4ba3d1ad158",
+      "name": "Felicia Lebsack",
+      "complete": false
+    },
+    {
+      "id": "e1ac78a8-9e19-4189-975b-bb2cc4948a52",
+      "name": "Iris Swift",
+      "complete": false
+    },
+    {
+      "id": "33a620a9-8923-42e6-a252-d9baa64493dc",
+      "name": "Nicholas O'Reilly",
+      "complete": false
+    }
+  ]
+}
