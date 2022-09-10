@@ -1,0 +1,18 @@
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+input {
+    border: 1px solid #9b7874;
+    border-radius: 11px;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.8rem;
+}
+
+.btn-add {
+    font-weight: 700;
+    padding: 8px 12px;
+}

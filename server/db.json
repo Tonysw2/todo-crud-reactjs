@@ -1,28 +1,18 @@
 {
   "todo": [
     {
-      "id": "90a119ff-02e6-4b76-81c5-d9543ba551b5",
-      "name": "Jo Purdy",
-      "complete": true
-    },
-    {
-      "id": "b599852f-2a03-4aa5-b85d-d64b5f3c6f1d",
-      "name": "Alice Doyle",
-      "complete": true
-    },
-    {
-      "id": "0fc453c6-666f-4054-8e1c-f4ba3d1ad158",
-      "name": "Felicia Lebsack",
+      "text": "lavar roupa",
+      "id": "862c83d5-7f8a-4197-b1e0-e2b35d562719",
       "complete": false
     },
     {
-      "id": "e1ac78a8-9e19-4189-975b-bb2cc4948a52",
-      "name": "Iris Swift",
+      "text": "fazer almoço",
+      "id": "d8999c09-ec66-4adf-8536-82af9f1e9574",
       "complete": false
     },
     {
-      "id": "33a620a9-8923-42e6-a252-d9baa64493dc",
-      "name": "Nicholas O'Reilly",
+      "text": "terminar capitulo 1 de programação",
+      "id": "dd9a73aa-83a9-4700-821d-628bdbf5f545",
       "complete": false
     }
   ]
