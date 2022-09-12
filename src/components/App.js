@@ -15,17 +15,15 @@ import TodoList from './List/TodoList';
 import classes from './App.module.css';
 
 function App() {
-    const [loading, setLoading] = useState(false);
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
     const inputElement = useRef(null);
+    console.log(todoList);
 
     const getToDos = async () => {
         try {
-            setLoading(true);
             const res = await axios.get(`${SERVER_URL}/todo`);
             setTodoList(res.data);
-            setLoading(false);
         } catch (e) {
             console.error(e);
         }
@@ -85,19 +83,13 @@ function App() {
     };
 
     useEffect(() => {
-        if (loading) return <p>Loading....</p>;
         getToDos();
     }, []);
 
     return (
-        <div
-            className={
-                todoList.length === 0 ? classes['lower-gap'] : classes.app
-            }
-        >
-            {todoList.length === 0 && (
-                <p>🔽 There is no task yet, type your task here 🔽</p>
-            )}
+        <div className={classes.app}>
+            <div className={classes.title}>Lembretes</div>
+
             <Form
                 ref={inputElement}
                 addToDo={addToDo}

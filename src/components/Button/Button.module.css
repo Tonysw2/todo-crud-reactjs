@@ -1,8 +1,11 @@
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    background-color: #d33e43;
-    border-radius: 11px;
-    padding: 0.6rem 0.8rem;
+    background-color: #5271ff;
+    border-radius: 100px;
+    padding: 0.6rem;
     font-size: 1.8rem;
 }
 

@@ -1,4 +1,10 @@
-ul {
+.wrap-list {
+    width: 90%;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.list {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -6,7 +12,9 @@ ul {
     gap: 1.2rem;
 }
 
-li {
+.list-item {
+    font-weight: 700;
+    background-color: #fd7e14;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,35 +22,54 @@ li {
     padding: 0.6rem 1.2rem;
     min-height: 45px;
     border-radius: 9px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.wrap-list {
-    width: 90%;
-}
-
-.wrap-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.wrap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-del {
-    font-size: 16px;
+    background-color: transparent;
+    font-size: 20px;
     font-weight: 600;
-    padding: 5px 7px;
+    padding: 5px;
+}
+
+.btn-del:hover,
+.btn-del:active {
+    transform: scale(1.5);
+    transition: all 0.3s;
 }
 
 .btn-edit {
-    font-size: 16px;
+    background-color: transparent;
+    font-size: 20px;
     font-weight: 600;
-    padding: 5px 7px;
+    padding: 5px;
+}
+
+.btn-edit:hover,
+.btn-edit:active {
+    transform: scale(1.5);
+    transition: all 0.3s;
+}
+
+/* SCROLL BAR STYLE */
+::-webkit-scrollbar {
+    width: 0px;
 }

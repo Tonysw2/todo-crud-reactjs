@@ -22,10 +22,10 @@ const Form = React.forwardRef((props, focusInput) => {
         event.preventDefault();
 
         if (!props.isEditing.editing && taskText.length === 0)
-            alert('NO TASK WAS WRITEN, PLEASE TRY AGAIN!');
+            props.setOpenModal(true);
 
         if (props.isEditing.editing && taskTextUpdate.length === 0)
-            alert('NO TASK WAS WRITEN, PLEASE TRY AGAIN!');
+            props.setOpenModal(true);
 
         if (!props.isEditing.editing && taskText.length > 0) {
             props.addToDo(taskText);
@@ -34,6 +34,9 @@ const Form = React.forwardRef((props, focusInput) => {
         if (props.isEditing.editing && taskTextUpdate.length > 0) {
             props.updateToDo(taskTextUpdate);
         }
+
+        setTaskText('');
+        setTaskTextUpdate('');
     };
 
     return (
@@ -49,11 +52,10 @@ const Form = React.forwardRef((props, focusInput) => {
                 }
                 placeholder="Add your task here"
                 value={props.isEditing.editing ? taskTextUpdate : taskText}
-            />
-
-            <Button type="submit" className={classes['btn-add']}>
-                ADD
-            </Button>
+            ></input>
+            <div onClick={submitHandler} className={classes['add-sharp']}>
+                <ion-icon name="add-sharp"></ion-icon>
+            </div>
         </form>
     );
 });

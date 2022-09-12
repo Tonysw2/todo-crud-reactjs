@@ -1,18 +1,28 @@
 {
   "todo": [
     {
-      "text": "lavar roupa",
-      "id": "862c83d5-7f8a-4197-b1e0-e2b35d562719",
+      "text": "Acordar as 7am",
+      "id": "60a8735f-2b14-4e1e-974b-d105e2dc9115",
       "complete": false
     },
     {
-      "text": "fazer almoço",
-      "id": "d8999c09-ec66-4adf-8536-82af9f1e9574",
+      "text": "tomar café da manhã",
+      "id": "80bf25b9-6b03-4110-aad4-4d30265eb1df",
       "complete": false
     },
     {
-      "text": "terminar capitulo 1 de programação",
-      "id": "dd9a73aa-83a9-4700-821d-628bdbf5f545",
+      "text": "ir na academia",
+      "id": "05b87135-70e3-47be-84e3-a5ee3b166f78",
+      "complete": false
+    },
+    {
+      "text": "estudar programação",
+      "id": "9c8bd28d-78b3-42ee-9c51-f455b26b21d3",
+      "complete": false
+    },
+    {
+      "text": "fazer comida da semana em marmitas",
+      "id": "1bc118f8-0681-49a5-adaa-8a7c46bf1f77",
       "complete": false
     }
   ]

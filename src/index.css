@@ -20,7 +20,7 @@ Other Colors: #9b7874, #FF220C
 }
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 62.5%;
 }
 
@@ -30,6 +30,6 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #1c1f33;
-    color: #fff;
+    background-color: #343a40;
+    color: #111;
 }

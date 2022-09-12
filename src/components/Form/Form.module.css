@@ -2,17 +2,27 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: 11px;
+    padding: 0.8rem 1.2rem;
 }
 
 input {
-    border: 1px solid #9b7874;
-    border-radius: 11px;
-    padding: 0.6rem 0.8rem;
-    font-size: 1.8rem;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    width: 100%;
 }
 
-.btn-add {
-    font-weight: 700;
-    padding: 8px 12px;
+.add-sharp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #ced4da;
+    border-radius: 100px;
+    cursor: pointer;
 }

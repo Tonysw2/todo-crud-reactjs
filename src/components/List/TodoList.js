@@ -14,25 +14,24 @@ const TodoList = (props) => {
 
     return (
         <div className={classes['wrap-list']}>
-            <ul className={classes.ul}>
+            <ul className={classes.list}>
                 {props.todoList.map((task) => {
                     return (
-                        <li className={classes.li} key={task.id}>
+                        <li className={classes['list-item']} key={task.id}>
                             <div>{formatText(task.text)}</div>
                             <div className={classes.buttons}>
+                                <input
+                                    className={classes.checkbox}
+                                    type="checkbox"
+                                    id={task.id}
+                                    onChange={() => props.completeTodo(task)}
+                                    checked={task.complete}
+                                />
+
                                 {task.complete ? (
                                     ''
                                 ) : (
                                     <div className={classes['wrap-btn']}>
-                                        <Button
-                                            className={classes['btn-del']}
-                                            key={task.id}
-                                            onClick={() => {
-                                                props.deleteToDo(task.id);
-                                            }}
-                                        >
-                                            DEL
-                                        </Button>
                                         <Button
                                             className={classes['btn-edit']}
                                             onClick={() => {
@@ -40,17 +39,23 @@ const TodoList = (props) => {
                                                 props.editToDo(task.id);
                                             }}
                                         >
-                                            EDIT
+                                            {
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            }
+                                        </Button>
+                                        <Button
+                                            className={classes['btn-del']}
+                                            key={task.id}
+                                            onClick={() => {
+                                                props.deleteToDo(task.id);
+                                            }}
+                                        >
+                                            {
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            }
                                         </Button>
                                     </div>
                                 )}
-
-                                <input
-                                    type="checkbox"
-                                    id={task.id}
-                                    onChange={() => props.completeTodo(task)}
-                                    checked={task.complete}
-                                />
                             </div>
                         </li>
                     );
