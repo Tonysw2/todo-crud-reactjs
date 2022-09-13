@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 // COMPONENTS
-import Button from '../Button/Button';
 
 // CSS
 import classes from './Form.module.css';
@@ -22,10 +21,14 @@ const Form = React.forwardRef((props, focusInput) => {
         event.preventDefault();
 
         if (!props.isEditing.editing && taskText.length === 0)
-            props.setOpenModal(true);
+            alert(
+                'NO TEXT WAS WRITEN, PLEASE TYPE SOMETHING TO ADD A NEW TASK!'
+            );
 
         if (props.isEditing.editing && taskTextUpdate.length === 0)
-            props.setOpenModal(true);
+            alert(
+                'NO TEXT WAS WRITEN, PLEASE TYPE SOMETHING TO EDIT ACTUAL TASK!'
+            );
 
         if (!props.isEditing.editing && taskText.length > 0) {
             props.addToDo(taskText);

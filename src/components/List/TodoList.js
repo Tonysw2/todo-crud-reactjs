@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // COMPONENTS
 import Button from '../Button/Button';
@@ -17,7 +17,14 @@ const TodoList = (props) => {
             <ul className={classes.list}>
                 {props.todoList.map((task) => {
                     return (
-                        <li className={classes['list-item']} key={task.id}>
+                        <li
+                            className={
+                                task.complete
+                                    ? `${classes['list-item']} ${classes['list-item--complete']}`
+                                    : classes['list-item']
+                            }
+                            key={task.id}
+                        >
                             <div>{formatText(task.text)}</div>
                             <div className={classes.buttons}>
                                 <input
@@ -29,7 +36,17 @@ const TodoList = (props) => {
                                 />
 
                                 {task.complete ? (
-                                    ''
+                                    <Button
+                                        className={classes['btn-del']}
+                                        key={task.id}
+                                        onClick={() => {
+                                            props.deleteToDo(task.id);
+                                        }}
+                                    >
+                                        {
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        }
+                                    </Button>
                                 ) : (
                                     <div className={classes['wrap-btn']}>
                                         <Button

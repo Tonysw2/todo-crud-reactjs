@@ -18,7 +18,7 @@ function App() {
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
     const inputElement = useRef(null);
-    console.log(todoList);
+    console.log(isEditing);
 
     const getToDos = async () => {
         try {
@@ -52,9 +52,13 @@ function App() {
     };
 
     const editToDo = (id) => {
-        setIsEditing((prev) => {
-            return { editing: !prev.editing, editID: id };
-        });
+        if (isEditing.editing) {
+            return;
+        } else {
+            setIsEditing((prev) => {
+                return { editing: !prev.editing, editID: id };
+            });
+        }
     };
 
     const updateToDo = async (text) => {
@@ -88,7 +92,7 @@ function App() {
 
     return (
         <div className={classes.app}>
-            <div className={classes.title}>Lembretes</div>
+            <div className={classes.title}>Tarefas</div>
 
             <Form
                 ref={inputElement}
