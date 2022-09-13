@@ -3,7 +3,7 @@
     {
       "text": "Passear com o Ted",
       "id": "60a8735f-2b14-4e1e-974b-d105e2dc9115",
-      "complete": false
+      "complete": true
     },
     {
       "text": "tomar café da manhã",
@@ -13,7 +13,7 @@
     {
       "text": "ir na academia",
       "id": "05b87135-70e3-47be-84e3-a5ee3b166f78",
-      "complete": false
+      "complete": true
     },
     {
       "text": "estudar programação",
