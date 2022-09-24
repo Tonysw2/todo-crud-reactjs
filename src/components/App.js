@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { SERVER_URL } from '../api/urls';
 
 // REACT HOOKS
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // COMPONENTS
 import Form from './Form/Form';
@@ -18,7 +18,18 @@ function App() {
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
     const inputElement = useRef(null);
-    console.log(isEditing);
+
+    const getTaskDate = useCallback(() => {
+        const newDate = new Date();
+        const day = newDate.getDate();
+        const month = newDate.getMonth() + 1;
+        const year = newDate.getFullYear();
+
+        const date = `Creation date: ${day}/${
+            month > 9 ? month : `0${month}`
+        }/${year}`;
+        return date;
+    }, []);
 
     const getToDos = async () => {
         try {
@@ -35,6 +46,7 @@ function App() {
                 text: text,
                 id: uuidv4(),
                 complete: false,
+                date: getTaskDate(),
             });
         } catch (e) {
             console.error(e);
@@ -74,7 +86,7 @@ function App() {
         getToDos();
     };
 
-    const completeTodo = async (task) => {
+    const completeToDo = async (task) => {
         try {
             await axios.patch(`${SERVER_URL}/todo/${task.id}`, {
                 complete: !task.complete,
@@ -92,7 +104,7 @@ function App() {
 
     return (
         <div className={classes.app}>
-            <div className={classes.title}>Tarefas</div>
+            <div className={classes.title}>Tasks</div>
 
             <Form
                 ref={inputElement}
@@ -102,9 +114,9 @@ function App() {
             />
             <TodoList
                 inputFocus={inputElement.current}
+                completeToDo={completeToDo}
                 editToDo={editToDo}
                 deleteToDo={deleteToDo}
-                completeTodo={completeTodo}
                 todoList={todoList}
             />
         </div>

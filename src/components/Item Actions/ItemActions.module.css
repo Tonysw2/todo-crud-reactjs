@@ -1,0 +1,36 @@
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.wrap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-complete,
+.btn-edit,
+.btn-del {
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px;
+    transition: all ease 0.3s;
+}
+
+.btn-del:hover,
+.btn-del:active,
+.btn-edit:hover,
+.btn-edit:active,
+.btn-complete:hover,
+.btn-complete:active {
+    transform: scale(1.5);
+}

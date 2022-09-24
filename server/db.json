@@ -1,29 +1,34 @@
 {
   "todo": [
     {
-      "text": "Passear com o Ted",
-      "id": "60a8735f-2b14-4e1e-974b-d105e2dc9115",
-      "complete": true
-    },
-    {
-      "text": "tomar café da manhã",
-      "id": "80bf25b9-6b03-4110-aad4-4d30265eb1df",
-      "complete": false
-    },
-    {
-      "text": "ir na academia",
-      "id": "05b87135-70e3-47be-84e3-a5ee3b166f78",
-      "complete": true
+      "text": "levar Ted passear",
+      "id": "2d390a47-522b-4a19-a0c4-7079a657e4c8",
+      "complete": false,
+      "date": "Creation date: 23/09/2022"
     },
     {
       "text": "estudar programação",
-      "id": "9c8bd28d-78b3-42ee-9c51-f455b26b21d3",
-      "complete": false
+      "id": "ddc85d75-f864-43c4-9cae-bc0a1542e54a",
+      "complete": false,
+      "date": "Creation date: 23/09/2022"
     },
     {
       "text": "fazer comida da semana em marmitas",
-      "id": "1bc118f8-0681-49a5-adaa-8a7c46bf1f77",
-      "complete": false
+      "id": "a6c0cb56-813f-4959-b623-bc7f600d0352",
+      "complete": false,
+      "date": "Creation date: 23/09/2022"
+    },
+    {
+      "text": "ir para academia",
+      "id": "091d8f37-7656-4ed9-814e-803fdd391e61",
+      "complete": false,
+      "date": "Creation date: 23/09/2022"
+    },
+    {
+      "text": "lavar roupa",
+      "id": "a5066c4a-350b-46be-b50d-d00664359f01",
+      "complete": false,
+      "date": "Creation date: 23/09/2022"
     }
   ]
 }

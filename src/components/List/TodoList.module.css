@@ -13,66 +13,28 @@
 }
 
 .list-item {
-    font-weight: 700;
-    background-color: #fd7e14;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #fd7e14;
+
+    font-weight: 700;
     font-size: 1.8rem;
+    cursor: text;
+
     padding: 0.6rem 1.2rem;
     min-height: 45px;
     border-radius: 9px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.item-details {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 .list-item--complete {
     text-decoration: line-through;
-}
-
-/*********** BUTTONS ***********/
-
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.checkbox {
-    width: 16px;
-    height: 16px;
-}
-
-.wrap-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-del {
-    background-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 5px;
-}
-
-.btn-del:hover,
-.btn-del:active {
-    transform: scale(1.5);
-    transition: all 0.3s;
-}
-
-.btn-edit {
-    background-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 5px;
-}
-
-.btn-edit:hover,
-.btn-edit:active {
-    transform: scale(1.5);
-    transition: all 0.3s;
 }
 
 /* SCROLL BAR STYLE */
