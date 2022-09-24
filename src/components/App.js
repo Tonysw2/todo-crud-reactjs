@@ -17,7 +17,9 @@ import classes from './App.module.css';
 function App() {
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
-    const inputElement = useRef(null);
+    console.log(isEditing);
+    const [inputFormIsFocused, setInputFormIsFocused] = useState(false);
+    const inputFormFocus = useRef(null);
 
     const getTaskDate = useCallback(() => {
         const newDate = new Date();
@@ -65,7 +67,8 @@ function App() {
 
     const editToDo = (id) => {
         if (isEditing.editing) {
-            return;
+            setIsEditing({ editing: false, editID: '' });
+            inputFormFocus.current.blur();
         } else {
             setIsEditing((prev) => {
                 return { editing: !prev.editing, editID: id };
@@ -83,6 +86,7 @@ function App() {
         }
 
         setIsEditing({ editing: false, editID: '' });
+        setInputFormIsFocused(false);
         getToDos();
     };
 
@@ -107,13 +111,16 @@ function App() {
             <div className={classes.title}>Tasks</div>
 
             <Form
-                ref={inputElement}
+                ref={inputFormFocus}
+                inputFormFocus={inputFormFocus}
+                inputFormIsFocused={inputFormIsFocused}
                 addToDo={addToDo}
                 updateToDo={updateToDo}
                 isEditing={isEditing}
             />
             <TodoList
-                inputFocus={inputElement.current}
+                inputFocus={inputFormFocus.current}
+                setInputFormIsFocused={setInputFormIsFocused}
                 completeToDo={completeToDo}
                 editToDo={editToDo}
                 deleteToDo={deleteToDo}

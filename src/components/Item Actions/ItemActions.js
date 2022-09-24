@@ -5,6 +5,7 @@ import classes from './ItemActions.module.css';
 const ItemActions = ({
     task,
     inputFocus,
+    setInputFormIsFocused,
     completeToDo,
     editToDo,
     deleteToDo,
@@ -43,6 +44,7 @@ const ItemActions = ({
                         className={classes['btn-edit']}
                         onClick={() => {
                             inputFocus.focus();
+                            setInputFormIsFocused(true);
                             editToDo(task.id);
                         }}
                     >

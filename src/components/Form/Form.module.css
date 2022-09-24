@@ -26,3 +26,7 @@ input {
     border-radius: 100px;
     cursor: pointer;
 }
+
+.isFocused {
+    outline: 2px solid #fd7e14;
+}

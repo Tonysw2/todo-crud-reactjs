@@ -10,6 +10,7 @@ import classes from './TodoList.module.css';
 const TodoList = ({
     todoList,
     inputFocus,
+    setInputFormIsFocused,
     completeToDo,
     editToDo,
     deleteToDo,
@@ -44,6 +45,9 @@ const TodoList = ({
                                 <ItemActions
                                     task={task}
                                     inputFocus={inputFocus}
+                                    setInputFormIsFocused={
+                                        setInputFormIsFocused
+                                    }
                                     completeToDo={completeToDo}
                                     editToDo={editToDo}
                                     deleteToDo={deleteToDo}
