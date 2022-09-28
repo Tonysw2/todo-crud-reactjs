@@ -1,34 +1,34 @@
 {
   "todo": [
     {
-      "text": "Levar Ted passear",
-      "id": "2d390a47-522b-4a19-a0c4-7079a657e4c8",
+      "text": "levar Ted passear",
+      "id": "ce0f5c9e-a824-4680-a614-cd734a5b585e",
       "complete": false,
-      "date": "Creation date: 23/09/2022"
-    },
-    {
-      "text": "estudar programação",
-      "id": "ddc85d75-f864-43c4-9cae-bc0a1542e54a",
-      "complete": false,
-      "date": "Creation date: 23/09/2022"
+      "date": "Creation date: 27/09/2022"
     },
     {
       "text": "fazer comida da semana em marmitas",
-      "id": "a6c0cb56-813f-4959-b623-bc7f600d0352",
+      "id": "2028d9a1-9598-4771-8190-90e2e96ee0c8",
       "complete": false,
-      "date": "Creation date: 23/09/2022"
-    },
-    {
-      "text": "ir para academia",
-      "id": "091d8f37-7656-4ed9-814e-803fdd391e61",
-      "complete": false,
-      "date": "Creation date: 23/09/2022"
+      "date": "Creation date: 27/09/2022"
     },
     {
       "text": "lavar roupa",
-      "id": "a5066c4a-350b-46be-b50d-d00664359f01",
+      "id": "df09c1b4-8e32-4e09-883b-ce4e8929d22c",
       "complete": false,
-      "date": "Creation date: 23/09/2022"
+      "date": "Creation date: 27/09/2022"
+    },
+    {
+      "text": "ir na academia",
+      "id": "18baed37-4cfc-4070-b0f3-67ae0ef5125a",
+      "complete": false,
+      "date": "Creation date: 27/09/2022"
+    },
+    {
+      "text": "estudar programação",
+      "id": "ed2243f4-7427-4ed4-b313-fe4e1eca987c",
+      "complete": false,
+      "date": "Creation date: 27/09/2022"
     }
   ]
 }

@@ -1,23 +1,13 @@
 import axios from 'axios';
-// ID GENERATOR
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-// SERVER
 import { SERVER_URL } from '../api/urls';
 
-// REACT HOOKS
-import { useCallback, useEffect, useRef, useState } from 'react';
+export const ToDoContext = React.createContext();
 
-// COMPONENTS
-import Form from './Form/Form';
-import TodoList from './List/TodoList';
-
-// CSS
-import classes from './App.module.css';
-
-function App() {
+const ToDoContextProvider = ({ children }) => {
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
-    console.log(isEditing);
     const [inputFormIsFocused, setInputFormIsFocused] = useState(false);
     const inputFormFocus = useRef(null);
 
@@ -107,27 +97,23 @@ function App() {
     }, []);
 
     return (
-        <div className={classes.app}>
-            <div className={classes.title}>Tasks</div>
-
-            <Form
-                ref={inputFormFocus}
-                inputFormFocus={inputFormFocus}
-                inputFormIsFocused={inputFormIsFocused}
-                addToDo={addToDo}
-                updateToDo={updateToDo}
-                isEditing={isEditing}
-            />
-            <TodoList
-                inputFocus={inputFormFocus.current}
-                setInputFormIsFocused={setInputFormIsFocused}
-                completeToDo={completeToDo}
-                editToDo={editToDo}
-                deleteToDo={deleteToDo}
-                todoList={todoList}
-            />
-        </div>
+        <ToDoContext.Provider
+            value={{
+                addToDo,
+                deleteToDo,
+                updateToDo,
+                editToDo,
+                completeToDo,
+                setInputFormIsFocused,
+                todoList,
+                isEditing,
+                inputFormIsFocused,
+                inputFormFocus,
+            }}
+        >
+            {children}
+        </ToDoContext.Provider>
     );
-}
+};
 
-export default App;
+export default ToDoContextProvider;

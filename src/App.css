@@ -12,29 +12,10 @@
     height: 60rem;
 }
 
-.title {
+header {
     text-transform: uppercase;
     font-family: 'Anton', sans-serif;
     font-size: 36px;
     color: #ced4da;
     margin-bottom: 2rem;
-}
-
-.lower-gap {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 3rem;
-
-    margin-top: 1.2rem;
-    padding: 3.6rem 4.2rem;
-    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 11px;
-    width: 50rem;
-    height: 60rem;
-}
-
-p {
-    font-size: 16px;
-    font-weight: 700;
 }

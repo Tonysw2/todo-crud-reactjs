@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ToDoContext } from '../../Context/ToDoContext';
 import Button from '../Button/Button';
-import classes from './ItemActions.module.css';
+import './ItemActions.css';
 
-const ItemActions = ({
-    task,
-    inputFocus,
-    setInputFormIsFocused,
-    completeToDo,
-    editToDo,
-    deleteToDo,
-}) => {
+const ItemActions = ({ task }) => {
+    const {
+        completeToDo,
+        deleteToDo,
+        editToDo,
+        inputFormFocus,
+        setInputFormIsFocused,
+    } = useContext(ToDoContext);
+
     return (
-        <div className={classes.buttons}>
+        <div className="buttons">
             {task.complete ? (
                 <>
                     <Button
-                        className={classes['btn-complete']}
+                        className="btn-complete"
                         id={task.id}
                         onClick={() => completeToDo(task)}
                     >
                         <ion-icon name="checkmark-circle-outline"></ion-icon>
                     </Button>
                     <Button
-                        className={classes['btn-del']}
+                        className="btn-del"
                         key={task.id}
                         onClick={() => {
                             deleteToDo(task.id);
@@ -32,18 +34,18 @@ const ItemActions = ({
                     </Button>
                 </>
             ) : (
-                <div className={classes['wrap-btn']}>
+                <div className="wrap-btn">
                     <Button
-                        className={classes['btn-complete']}
+                        className="btn-complete"
                         id={task.id}
                         onClick={() => completeToDo(task)}
                     >
                         <ion-icon name="checkmark-circle-outline"></ion-icon>
                     </Button>
                     <Button
-                        className={classes['btn-edit']}
+                        className="btn-edit"
                         onClick={() => {
-                            inputFocus.focus();
+                            inputFormFocus.focus();
                             setInputFormIsFocused(true);
                             editToDo(task.id);
                         }}
@@ -51,7 +53,7 @@ const ItemActions = ({
                         {<ion-icon name="create-outline"></ion-icon>}
                     </Button>
                     <Button
-                        className={classes['btn-del']}
+                        className="btn-del"
                         key={task.id}
                         onClick={() => {
                             deleteToDo(task.id);

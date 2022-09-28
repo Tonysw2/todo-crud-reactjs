@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
-
-// COMPONENTS
-
+import React, { useContext } from 'react';
+import { ToDoContext } from '../../Context/ToDoContext';
 import ItemActions from '../Item Actions/ItemActions';
+import './TodoList.css';
 
-// CSS
-import classes from './TodoList.module.css';
+const TodoList = () => {
+    const { todoList } = useContext(ToDoContext);
 
-const TodoList = ({
-    todoList,
-    inputFocus,
-    setInputFormIsFocused,
-    completeToDo,
-    editToDo,
-    deleteToDo,
-}) => {
     const formatText = (text) => {
         const formatedText = text.slice(0, 1).toUpperCase() + text.slice(1);
         return formatedText;
     };
 
     return (
-        <div className={classes['wrap-list']}>
-            <ul className={classes.list}>
+        <div className="wrap-list">
+            <ul className="list">
                 {todoList
                     .sort((a, b) => a.complete - b.complete)
                     .map((task) => {
@@ -30,28 +21,19 @@ const TodoList = ({
                             <li
                                 className={
                                     task.complete
-                                        ? `${classes['list-item']} ${classes['list-item--complete']}`
-                                        : classes['list-item']
+                                        ? 'list-item list-item--complete'
+                                        : 'list-item'
                                 }
                                 key={task.id}
                             >
                                 <div>
                                     <div>{formatText(task.text)}</div>
-                                    <div className={classes['item-details']}>
+                                    <div className="item-details">
                                         {task.date}
                                     </div>
                                 </div>
 
-                                <ItemActions
-                                    task={task}
-                                    inputFocus={inputFocus}
-                                    setInputFormIsFocused={
-                                        setInputFormIsFocused
-                                    }
-                                    completeToDo={completeToDo}
-                                    editToDo={editToDo}
-                                    deleteToDo={deleteToDo}
-                                />
+                                <ItemActions task={task} />
                             </li>
                         );
                     })}
