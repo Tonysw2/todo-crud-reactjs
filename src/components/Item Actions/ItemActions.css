@@ -2,18 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
 
 .wrap-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.input-date {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
 }
 
 .btn-complete,
 .btn-edit,
-.btn-del {
+.btn-del,
+.btn-date {
     background-color: transparent;
     font-size: 20px;
     font-weight: 600;
@@ -26,6 +34,8 @@
 .btn-edit:hover,
 .btn-edit:active,
 .btn-complete:hover,
-.btn-complete:active {
+.btn-complete:active,
+.btn-date:hover,
+.btn-date:active {
     transform: scale(1.5);
 }

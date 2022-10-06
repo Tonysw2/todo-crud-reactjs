@@ -1,4 +1,4 @@
-form {
+.task-form {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,7 @@ form {
     padding: 0.8rem 1.2rem;
 }
 
-input {
+.task-input {
     border: none;
     background-color: transparent;
     outline: none;

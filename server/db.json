@@ -1,34 +1,34 @@
 {
   "todo": [
     {
-      "text": "levar Ted passear",
-      "id": "ce0f5c9e-a824-4680-a614-cd734a5b585e",
+      "text": "levar ted passear",
+      "id": "da19cbf0-ccbe-442c-b8a6-dfac550e9636",
       "complete": false,
-      "date": "Creation date: 27/09/2022"
+      "date": "2022-10-07"
     },
     {
-      "text": "fazer comida da semana em marmitas",
-      "id": "2028d9a1-9598-4771-8190-90e2e96ee0c8",
+      "text": "lavar pratos",
+      "id": "76647f0d-e9f7-4561-9f2c-f9bb086b8c47",
       "complete": false,
-      "date": "Creation date: 27/09/2022"
-    },
-    {
-      "text": "lavar roupa",
-      "id": "df09c1b4-8e32-4e09-883b-ce4e8929d22c",
-      "complete": false,
-      "date": "Creation date: 27/09/2022"
+      "date": ""
     },
     {
       "text": "ir na academia",
-      "id": "18baed37-4cfc-4070-b0f3-67ae0ef5125a",
+      "id": "013e28f2-b911-4cd3-812f-ecf0752997ee",
       "complete": false,
-      "date": "Creation date: 27/09/2022"
+      "date": false
+    },
+    {
+      "text": "fazer comidas da semana em marmita",
+      "id": "e4980b3f-11ba-4848-91a0-9648e8ccd0dc",
+      "complete": false,
+      "date": false
     },
     {
       "text": "estudar programação",
-      "id": "ed2243f4-7427-4ed4-b313-fe4e1eca987c",
+      "id": "918ca345-1d31-4aca-8120-feb15bf633f5",
       "complete": false,
-      "date": "Creation date: 27/09/2022"
+      "date": false
     }
   ]
 }

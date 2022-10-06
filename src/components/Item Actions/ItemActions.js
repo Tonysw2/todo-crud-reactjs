@@ -4,13 +4,20 @@ import Button from '../Button/Button';
 import './ItemActions.css';
 
 const ItemActions = ({ task }) => {
-    const {
-        completeToDo,
-        deleteToDo,
-        editToDo,
-        inputFormFocus,
-        setInputFormIsFocused,
-    } = useContext(ToDoContext);
+    const { setTaskDate, completeToDo, editToDo, deleteToDo, inputDate } =
+        useContext(ToDoContext);
+
+    const getMinDate = () => {
+        const options = {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        };
+        const newDate = new Date().toLocaleString('pt-br', options);
+        const minDate = newDate.split('/').reverse().join('-');
+
+        return minDate;
+    };
 
     return (
         <div className="buttons">
@@ -35,6 +42,18 @@ const ItemActions = ({ task }) => {
                 </>
             ) : (
                 <div className="wrap-btn">
+                    <Button className="btn-date" title="date">
+                        <input
+                            ref={inputDate}
+                            className="input-date"
+                            type="date"
+                            min={getMinDate()}
+                            onChange={(event) =>
+                                setTaskDate(task, event.target.value)
+                            }
+                        />
+                        <ion-icon name="calendar-number-outline"></ion-icon>
+                    </Button>
                     <Button
                         className="btn-complete"
                         id={task.id}
@@ -44,9 +63,8 @@ const ItemActions = ({ task }) => {
                     </Button>
                     <Button
                         className="btn-edit"
+                        title="edit"
                         onClick={() => {
-                            inputFormFocus.focus();
-                            setInputFormIsFocused(true);
                             editToDo(task.id);
                         }}
                     >
@@ -54,6 +72,7 @@ const ItemActions = ({ task }) => {
                     </Button>
                     <Button
                         className="btn-del"
+                        title="delete"
                         key={task.id}
                         onClick={() => {
                             deleteToDo(task.id);

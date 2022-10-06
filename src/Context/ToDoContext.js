@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { SERVER_URL } from '../api/urls';
 
@@ -9,19 +9,8 @@ const ToDoContextProvider = ({ children }) => {
     const [todoList, setTodoList] = useState([]);
     const [isEditing, setIsEditing] = useState({ editing: false, editID: '' });
     const [inputFormIsFocused, setInputFormIsFocused] = useState(false);
+    const inputDate = useRef(null);
     const inputFormFocus = useRef(null);
-
-    const getTaskDate = useCallback(() => {
-        const newDate = new Date();
-        const day = newDate.getDate();
-        const month = newDate.getMonth() + 1;
-        const year = newDate.getFullYear();
-
-        const date = `Creation date: ${day}/${
-            month > 9 ? month : `0${month}`
-        }/${year}`;
-        return date;
-    }, []);
 
     const getToDos = async () => {
         try {
@@ -38,7 +27,7 @@ const ToDoContextProvider = ({ children }) => {
                 text: text,
                 id: uuidv4(),
                 complete: false,
-                date: getTaskDate(),
+                date: false,
             });
         } catch (e) {
             console.error(e);
@@ -59,10 +48,13 @@ const ToDoContextProvider = ({ children }) => {
         if (isEditing.editing) {
             setIsEditing({ editing: false, editID: '' });
             inputFormFocus.current.blur();
+            setInputFormIsFocused(false);
         } else {
             setIsEditing((prev) => {
                 return { editing: !prev.editing, editID: id };
             });
+            inputFormFocus.current.focus();
+            setInputFormIsFocused(true);
         }
     };
 
@@ -92,6 +84,50 @@ const ToDoContextProvider = ({ children }) => {
         getToDos();
     };
 
+    const setTaskDate = async (task, taskDate) => {
+        try {
+            await axios.patch(`${SERVER_URL}/todo/${task.id}`, {
+                date: taskDate,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+
+        getToDos();
+    };
+
+    const dateHandler = (taskDate) => {
+        const splitedPickedDate = taskDate.split('-');
+        const taskPickedDate = new Date(
+            Number(splitedPickedDate[0]),
+            Number(splitedPickedDate[1]) - 1,
+            Number(splitedPickedDate[2])
+        );
+        const date = new Date();
+        const actualDate = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate()
+        );
+
+        const daysPassed =
+            (taskPickedDate - actualDate) / (1000 * 60 * 60 * 24);
+
+        let displayDate = '';
+        const options = {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        };
+
+        if (daysPassed === 0) displayDate = 'Today';
+        if (daysPassed === 1) displayDate = 'Tomorrow';
+        if (daysPassed > 1)
+            displayDate = taskPickedDate.toLocaleDateString('en-us', options);
+
+        return displayDate;
+    };
+
     useEffect(() => {
         getToDos();
     }, []);
@@ -99,16 +135,22 @@ const ToDoContextProvider = ({ children }) => {
     return (
         <ToDoContext.Provider
             value={{
+                getToDos,
                 addToDo,
-                deleteToDo,
                 updateToDo,
-                editToDo,
                 completeToDo,
-                setInputFormIsFocused,
+                editToDo,
+                deleteToDo,
+                setTaskDate,
+                dateHandler,
                 todoList,
+                setTodoList,
                 isEditing,
+                setIsEditing,
                 inputFormIsFocused,
+                setInputFormIsFocused,
                 inputFormFocus,
+                inputDate,
             }}
         >
             {children}

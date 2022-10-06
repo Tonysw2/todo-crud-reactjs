@@ -4,7 +4,7 @@ import ItemActions from '../Item Actions/ItemActions';
 import './TodoList.css';
 
 const TodoList = () => {
-    const { todoList } = useContext(ToDoContext);
+    const { todoList, dateHandler } = useContext(ToDoContext);
 
     const formatText = (text) => {
         const formatedText = text.slice(0, 1).toUpperCase() + text.slice(1);
@@ -28,9 +28,13 @@ const TodoList = () => {
                             >
                                 <div>
                                     <div>{formatText(task.text)}</div>
-                                    <div className="item-details">
-                                        {task.date}
-                                    </div>
+                                    {task.date ? (
+                                        <div className="conclusion-date">
+                                            {dateHandler(task.date)}
+                                        </div>
+                                    ) : (
+                                        ''
+                                    )}
                                 </div>
 
                                 <ItemActions task={task} />
