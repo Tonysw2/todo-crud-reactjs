@@ -1,38 +1,71 @@
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React, { useContext, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { SERVER_URL } from '../../api/urls';
 import { ToDoContext } from '../../Context/ToDoContext';
+
 import './Form.css';
 
 const Form = () => {
     const {
-        addToDo,
-        updateToDo,
+        getTodos,
         isEditing,
+        setIsEditing,
         inputFormIsFocused,
-        inputFormFocus,
+        setInputFormIsFocused,
     } = useContext(ToDoContext);
+    const inputForm = useRef(null);
+
+    const addToDo = async (text) => {
+        try {
+            await axios.post(`${SERVER_URL}/todo`, {
+                text: text,
+                id: uuidv4(),
+                complete: false,
+                date: false,
+            });
+        } catch (e) {
+            console.error(e);
+        }
+        getTodos();
+    };
+
+    const updateToDo = async (text) => {
+        try {
+            await axios.patch(`${SERVER_URL}/todo/${isEditing.editID}`, {
+                text: text,
+            });
+        } catch (e) {
+            console.error(e);
+        }
+
+        setIsEditing({ editing: false, editID: '' });
+        setInputFormIsFocused(false);
+        getTodos();
+    };
 
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if (!isEditing.editing && inputFormFocus.current.value.length === 0)
+        if (!isEditing.editing && inputForm.current.value.length === 0)
             alert(
                 'NO TEXT WAS WRITEN, PLEASE TYPE SOMETHING TO ADD A NEW TASK!'
             );
 
-        if (isEditing.editing && inputFormFocus.current.value.length === 0)
+        if (isEditing.editing && inputForm.current.value.length === 0)
             alert(
                 'NO TEXT WAS WRITEN, PLEASE TYPE SOMETHING TO EDIT ACTUAL TASK!'
             );
 
-        if (!isEditing.editing && inputFormFocus.current.value.length > 0) {
-            addToDo(inputFormFocus.current.value);
+        if (!isEditing.editing && inputForm.current.value.length > 0) {
+            addToDo(inputForm.current.value);
         }
 
-        if (isEditing.editing && inputFormFocus.current.value.length > 0) {
-            updateToDo(inputFormFocus.current.value);
+        if (isEditing.editing && inputForm.current.value.length > 0) {
+            updateToDo(inputForm.current.value);
         }
 
-        inputFormFocus.current.value = '';
+        inputForm.current.value = '';
     };
 
     return (
@@ -45,7 +78,7 @@ const Form = () => {
             >
                 <input
                     className="task-input"
-                    ref={inputFormFocus}
+                    ref={inputForm}
                     type="text"
                     placeholder={
                         isEditing.editing

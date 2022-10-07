@@ -1,12 +1,13 @@
 import './App.css';
 import Form from './components/Form/Form';
+import Header from './components/Header/Header';
 import TodoList from './components/List/TodoList';
 import ToDoContextProvider from './Context/ToDoContext';
 
 function App() {
     return (
         <div className="app">
-            <header>Tasks</header>
+            <Header />
             <ToDoContextProvider>
                 <Form />
                 <TodoList />

@@ -1,0 +1,7 @@
+.app-name {
+    text-transform: uppercase;
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    color: #ced4da;
+    margin-bottom: 2rem;
+}

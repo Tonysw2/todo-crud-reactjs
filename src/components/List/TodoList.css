@@ -1,6 +1,6 @@
 .wrap-list {
     width: 90%;
-    max-height: 400px;
+    max-height: 450px;
     overflow: auto;
 }
 
@@ -18,7 +18,7 @@
     justify-content: space-between;
     background-color: #fd7e14;
 
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.8rem;
     cursor: text;
 
@@ -30,14 +30,30 @@
 
 .conclusion-date {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .list-item--complete {
     text-decoration: line-through;
 }
 
+.late {
+    color: red;
+}
+
 /* SCROLL BAR STYLE */
 ::-webkit-scrollbar {
     width: 0px;
+}
+
+@media (max-width: 530px) {
+    .list-item {
+        font-size: 1.6rem;
+    }
+
+    .wrap-task-description {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 }

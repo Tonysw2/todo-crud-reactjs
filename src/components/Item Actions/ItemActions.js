@@ -1,11 +1,58 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
+import { SERVER_URL } from '../../api/urls';
 import { ToDoContext } from '../../Context/ToDoContext';
 import Button from '../Button/Button';
 import './ItemActions.css';
 
 const ItemActions = ({ task }) => {
-    const { setTaskDate, completeToDo, editToDo, deleteToDo, inputDate } =
+    const { getTodos, isEditing, setIsEditing, setInputFormIsFocused } =
         useContext(ToDoContext);
+
+    const setTaskDate = async (task, taskDate) => {
+        try {
+            await axios.patch(`${SERVER_URL}/todo/${task.id}`, {
+                date: taskDate,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+
+        getTodos();
+    };
+
+    const completeToDo = async (task) => {
+        try {
+            await axios.patch(`${SERVER_URL}/todo/${task.id}`, {
+                complete: !task.complete,
+            });
+        } catch (e) {
+            console.error(e);
+        }
+
+        getTodos();
+    };
+
+    const deleteToDo = async (id) => {
+        try {
+            await axios.delete(`${SERVER_URL}/todo/${id}`);
+        } catch (e) {
+            console.error(e);
+        }
+        getTodos();
+    };
+
+    const editToDo = (id) => {
+        if (isEditing.editing) {
+            setIsEditing({ editing: false, editID: '' });
+            setInputFormIsFocused(false);
+        } else {
+            setIsEditing((prev) => {
+                return { editing: !prev.editing, editID: id };
+            });
+            setInputFormIsFocused(true);
+        }
+    };
 
     const getMinDate = () => {
         const options = {
@@ -32,7 +79,6 @@ const ItemActions = ({ task }) => {
                     </Button>
                     <Button
                         className="btn-del"
-                        key={task.id}
                         onClick={() => {
                             deleteToDo(task.id);
                         }}
@@ -44,7 +90,6 @@ const ItemActions = ({ task }) => {
                 <div className="wrap-btn">
                     <Button className="btn-date" title="date">
                         <input
-                            ref={inputDate}
                             className="input-date"
                             type="date"
                             min={getMinDate()}
@@ -73,7 +118,6 @@ const ItemActions = ({ task }) => {
                     <Button
                         className="btn-del"
                         title="delete"
-                        key={task.id}
                         onClick={() => {
                             deleteToDo(task.id);
                         }}

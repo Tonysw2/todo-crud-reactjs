@@ -1,34 +1,28 @@
 {
   "todo": [
     {
-      "text": "levar ted passear",
-      "id": "da19cbf0-ccbe-442c-b8a6-dfac550e9636",
-      "complete": false,
-      "date": "2022-10-07"
-    },
-    {
       "text": "lavar pratos",
       "id": "76647f0d-e9f7-4561-9f2c-f9bb086b8c47",
       "complete": false,
-      "date": ""
+      "date": "2022-10-06"
     },
     {
       "text": "ir na academia",
       "id": "013e28f2-b911-4cd3-812f-ecf0752997ee",
       "complete": false,
-      "date": false
+      "date": "2022-10-06"
     },
     {
       "text": "fazer comidas da semana em marmita",
       "id": "e4980b3f-11ba-4848-91a0-9648e8ccd0dc",
       "complete": false,
-      "date": false
+      "date": "2022-10-08"
     },
     {
       "text": "estudar programação",
       "id": "918ca345-1d31-4aca-8120-feb15bf633f5",
       "complete": false,
-      "date": false
+      "date": "2022-10-06"
     }
   ]
 }

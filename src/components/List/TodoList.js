@@ -26,12 +26,12 @@ const TodoList = () => {
                                 }
                                 key={task.id}
                             >
-                                <div>
+                                <div className="wrap-task-description">
                                     <div>{formatText(task.text)}</div>
                                     {task.date ? (
-                                        <div className="conclusion-date">
+                                        <p className="conclusion-date">
                                             {dateHandler(task.date)}
-                                        </div>
+                                        </p>
                                     ) : (
                                         ''
                                     )}

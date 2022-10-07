@@ -39,3 +39,13 @@
 .btn-date:active {
     transform: scale(1.5);
 }
+
+@media (max-width: 530px) {
+    .wrap-btn {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+}
