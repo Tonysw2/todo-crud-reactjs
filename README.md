@@ -1,12 +1,12 @@
 # Requirements
 
 - Make a CRUD (CREATE READ UPDATE DELETE) for a ToDo list
-- Todo object {id, completed, name, description, createdDate, createdBy}
+- Todo object {id, completed, name, description, createdDate}
 - Dates all formatted like dd/mm/yyyy hh:mm:ss
 - Handle error and loading
 - Async Await/Try Catch
 
-# Next Features
+# How to use
 
-- Routing
-- Specific page for each Todo
+- to run this project you must install json server `npm install -g json-server`.
+- then use `npm run server` to run the project. Dont't forget to run the project in a different port of you server.
