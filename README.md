@@ -9,4 +9,4 @@
 # How to use
 
 - to run this project you must install json server `npm install -g json-server`.
-- then use `npm run server` to run the server and npm start to run the project.
+- then use `npm run server` to run the server and `npm start` to run the project.
